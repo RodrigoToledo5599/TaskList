@@ -40,8 +40,14 @@ class TaskController extends Controller
         return $result;
     }
 
-    public function updateTask($taskId, $task){
+    public function updateTask(Request $request){
+        $task = [ 
+            "name" => $request->input('name'),
+            "description" => $request->input('description'),
+            "done" => $request->input('done')
+        ];
         
+
     }
 
 }
