@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Task;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -51,5 +52,24 @@ class DatabaseSeeder extends Seeder
         foreach ($tasks as $task) {
             Task::create($task);
         }
+        
+        $users = [
+            [
+                'name' => 'John Doe',
+                'email' => 'john.doe@example.com',
+                'password' => Hash::make('secret'),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'email' => 'jane.smith@example.com',
+                'password' => Hash::make('secret123'),
+            ],
+            // Add more users as needed
+        ];
+
+        foreach ($users as $user) {
+            User::create($user);
+        }
+
     }
 }
