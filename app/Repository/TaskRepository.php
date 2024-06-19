@@ -34,8 +34,12 @@ class TaskRepository
         }
     }
     public function deleteTask($taskId){
-
+        $result = DB::table('tasks')->where('id',$taskId)->delete();
+        return $result;
     }
 
+    public function updateTask($taskId, $task){
+        
+    }
 
 }

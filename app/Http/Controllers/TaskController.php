@@ -24,10 +24,24 @@ class TaskController extends Controller
         return $task;
     }
 
-    public function createTask($task)
+    public function createTask(Request $request)
     {
-        $result = $this->createTasktaskRepo->createTask($task);
+        $task = [
+            "name" => $request->input('name'),
+            "description" => $request->input('description'),
+            "done" => $request->input('done')
+        ];
+        $result = $this->taskRepo->createTask($task);
         return $result;
+    }
+
+    public function deleteTask($taskId){
+        $result = $this->taskRepo->deleteTask($taskId);
+        return $result;
+    }
+
+    public function updateTask($taskId, $task){
+        
     }
 
 }
